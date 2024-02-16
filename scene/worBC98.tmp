@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjkkj2dih23df"]
+
+[ext_resource type="PackedScene" uid="uid://cs6cl5wk120wy" path="res://Player/Player.tscn" id="1_srrob"]
+[ext_resource type="PackedScene" uid="uid://dclwrsnrlkrcl" path="res://AI/enemy.tscn" id="3_tn4sk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdon3"]
+size = Vector2(1201, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjaj5"]
+size = Vector2(31, 692)
+
+[node name="world" type="Node2D"]
+position = Vector2(0, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_srrob")]
+position = Vector2(173, 580)
+
+[node name="box" type="StaticBody2D" parent="."]
+position = Vector2(499, 374)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box"]
+position = Vector2(78.5, 244)
+shape = SubResource("RectangleShape2D_pdon3")
+debug_color = Color(0.94902, 0, 0.568627, 0.419608)
+
+[node name="WALL_R" type="CollisionShape2D" parent="box"]
+position = Vector2(-516, -82)
+shape = SubResource("RectangleShape2D_cjaj5")
+
+[node name="WALL_L" type="CollisionShape2D" parent="box"]
+position = Vector2(669, -80)
+shape = SubResource("RectangleShape2D_cjaj5")
+
+[node name="enemy" parent="." instance=ExtResource("3_tn4sk")]
+position = Vector2(862, 621)

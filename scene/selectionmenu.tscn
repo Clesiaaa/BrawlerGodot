@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://bken7wo3gss2x"]
+
+[ext_resource type="Script" path="res://script/selectionmenu.gd" id="1_8tsjx"]
+[ext_resource type="Texture2D" uid="uid://bq6i60k2wftwx" path="res://assets/visuals/Menu.png" id="2_x3yxp"]
+[ext_resource type="Texture2D" uid="uid://dhcaxjtn7p8en" path="res://assets/backgrounds/bg1.png" id="2_xc7ym"]
+[ext_resource type="AudioStream" uid="uid://cccno6hixwpq1" path="res://assets/audio/main.mp3" id="3_7paoq"]
+[ext_resource type="Texture2D" uid="uid://bsh2du6o6ss7j" path="res://assets/visuals/title.png" id="3_15qml"]
+[ext_resource type="Texture2D" uid="uid://cduwtebfy7ukm" path="res://assets/visuals/Multiplayer.png" id="6_svtgn"]
+[ext_resource type="Texture2D" uid="uid://h6r3v6cuajjt" path="res://assets/visuals/Solo.png" id="7_g3vkh"]
+
+[node name="selectionmenu" type="Node2D"]
+script = ExtResource("1_8tsjx")
+
+[node name="Bg1" type="Sprite2D" parent="."]
+position = Vector2(576, 325)
+scale = Vector2(0.646205, 0.632813)
+texture = ExtResource("2_xc7ym")
+
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(589, 76)
+scale = Vector2(12.3684, 14.75)
+texture = ExtResource("3_15qml")
+
+[node name="Menu" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(574, 168)
+scale = Vector2(8.29412, 7.4375)
+texture = ExtResource("2_x3yxp")
+
+[node name="start_5" type="Button" parent="."]
+offset_left = 674.0
+offset_top = 462.0
+offset_right = 800.0
+offset_bottom = 535.0
+text = "Map 3
+"
+
+[node name="start_3" type="Button" parent="."]
+offset_left = 328.0
+offset_top = 483.0
+offset_right = 456.0
+offset_bottom = 556.0
+text = "Map 3
+"
+
+[node name="start" type="Button" parent="."]
+offset_left = 329.0
+offset_top = 282.0
+offset_right = 451.0
+offset_bottom = 356.0
+text = "Map 1"
+
+[node name="start_4" type="Button" parent="."]
+offset_left = 674.0
+offset_top = 376.0
+offset_right = 799.0
+offset_bottom = 448.0
+text = "Map 2"
+
+[node name="start_2" type="Button" parent="."]
+offset_left = 329.0
+offset_top = 381.0
+offset_right = 454.0
+offset_bottom = 453.0
+text = "Map 2"
+
+[node name="music_background" type="AudioStreamPlayer2D" parent="."]
+rotation = 0.0138242
+stream = ExtResource("3_7paoq")
+autoplay = true
+
+[node name="start_6" type="Button" parent="."]
+offset_left = 674.0
+offset_top = 291.0
+offset_right = 797.0
+offset_bottom = 367.0
+text = "Map 1"
+
+[node name="Multiplayer" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(737, 256)
+scale = Vector2(2.05682, 3.125)
+texture = ExtResource("6_svtgn")
+
+[node name="Solo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(391.125, 254)
+scale = Vector2(2.65323, 3.5)
+texture = ExtResource("7_g3vkh")
+
+[connection signal="pressed" from="start_5" to="." method="_on_start_5_pressed"]
+[connection signal="pressed" from="start_3" to="." method="_on_start_3_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="start_4" to="." method="_on_start_4_pressed"]
+[connection signal="pressed" from="start_2" to="." method="_on_start_2_pressed"]
+[connection signal="pressed" from="start_6" to="." method="_on_start_6_pressed"]

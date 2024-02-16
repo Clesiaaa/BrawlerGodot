@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://f36xsg1wmcsf"]
+
+[ext_resource type="Texture2D" uid="uid://cmv8eowlpjydt" path="res://assets/backgrounds/bg3.png" id="1_dgigj"]
+[ext_resource type="PackedScene" uid="uid://dclwrsnrlkrcl" path="res://AI/enemy.tscn" id="2_7y7yi"]
+[ext_resource type="PackedScene" uid="uid://cs6cl5wk120wy" path="res://Player/Player.tscn" id="3_iyb8b"]
+[ext_resource type="Texture2D" uid="uid://bsh2du6o6ss7j" path="res://assets/visuals/title.png" id="4_t0tun"]
+[ext_resource type="AudioStream" uid="uid://f3fqyf3gq6yj" path="res://assets/audio/fight.mp3" id="5_xtfja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slshq"]
+size = Vector2(1201, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5wmn"]
+size = Vector2(31, 692)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bg3" type="Sprite2D" parent="."]
+position = Vector2(569, 328)
+scale = Vector2(0.821429, 0.6875)
+texture = ExtResource("1_dgigj")
+
+[node name="enemy" parent="." instance=ExtResource("2_7y7yi")]
+position = Vector2(974, 665)
+
+[node name="box" type="StaticBody2D" parent="."]
+position = Vector2(499, 374)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box"]
+position = Vector2(73, 286)
+shape = SubResource("RectangleShape2D_slshq")
+debug_color = Color(0.94902, 0, 0.568627, 0.419608)
+
+[node name="WALL_R" type="CollisionShape2D" parent="box"]
+position = Vector2(-516, -82)
+shape = SubResource("RectangleShape2D_w5wmn")
+
+[node name="WALL_L" type="CollisionShape2D" parent="box"]
+position = Vector2(664, -76)
+shape = SubResource("RectangleShape2D_w5wmn")
+
+[node name="Player" parent="." instance=ExtResource("3_iyb8b")]
+position = Vector2(197, 607)
+
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(578, 64)
+rotation = -0.000304453
+scale = Vector2(8.44736, 10.875)
+texture = ExtResource("4_t0tun")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+rotation = -0.00757188
+stream = ExtResource("5_xtfja")
+autoplay = true

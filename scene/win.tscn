@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl5ptguifhgr0"]
+
+[ext_resource type="Script" path="res://script/win.gd" id="1_6gsf3"]
+[ext_resource type="Texture2D" uid="uid://dxxof4etfog7d" path="res://assets/backgrounds/win_bg.png" id="2_dyvkf"]
+[ext_resource type="Texture2D" uid="uid://bsh2du6o6ss7j" path="res://assets/visuals/title.png" id="3_lp1vp"]
+[ext_resource type="Texture2D" uid="uid://c6mnhrywwgyh8" path="res://assets/visuals/Win.png" id="4_kybrt"]
+
+[node name="win" type="CanvasLayer"]
+script = ExtResource("1_6gsf3")
+
+[node name="WinBg" type="Sprite2D" parent="."]
+position = Vector2(577.5, 323.5)
+scale = Vector2(0.644531, 0.639648)
+texture = ExtResource("2_dyvkf")
+
+[node name="main_menu" type="Button" parent="."]
+offset_left = 505.0
+offset_top = 304.0
+offset_right = 646.0
+offset_bottom = 368.0
+text = "main menu
+"
+
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(579, 101)
+scale = Vector2(9.52632, 10.625)
+texture = ExtResource("3_lp1vp")
+
+[node name="Win" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 215)
+scale = Vector2(6.97826, 6.75)
+texture = ExtResource("4_kybrt")
+
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]

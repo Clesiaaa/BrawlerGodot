@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7fwrjul0p2yu"]
+
+[ext_resource type="Script" path="res://script/main.gd" id="1_quoew"]
+[ext_resource type="AudioStream" uid="uid://cccno6hixwpq1" path="res://assets/audio/main.mp3" id="2_pv7i7"]
+[ext_resource type="Texture2D" uid="uid://dhcaxjtn7p8en" path="res://assets/backgrounds/bg1.png" id="2_va5wk"]
+[ext_resource type="Texture2D" uid="uid://bsh2du6o6ss7j" path="res://assets/visuals/title.png" id="4_bg0a8"]
+
+[sub_resource type="FontFile" id="FontFile_r781a"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/glyphs/0/advance = Vector2(0, 0)
+cache/0/16/0/glyphs/0/offset = Vector2(0, 0)
+cache/0/16/0/glyphs/0/size = Vector2(0, 0)
+cache/0/16/0/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/16/0/glyphs/0/texture_idx = -1
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="main" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_quoew")
+
+[node name="Bg1" type="Sprite2D" parent="."]
+position = Vector2(577, 326)
+scale = Vector2(0.643973, 0.636719)
+texture = ExtResource("2_va5wk")
+
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(580, 163)
+scale = Vector2(12.3684, 14.75)
+texture = ExtResource("4_bg0a8")
+
+[node name="music_background" type="AudioStreamPlayer2D" parent="."]
+rotation = 0.0138242
+stream = ExtResource("2_pv7i7")
+autoplay = true
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 467.0
+offset_top = 374.0
+offset_right = 708.0
+offset_bottom = 469.0
+theme_override_fonts/font = SubResource("FontFile_r781a")
+text = "quit
+"
+
+[node name="demo_tag" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 53.0
+offset_bottom = 28.0
+rotation = 0.0138242
+text = "Demo
+"
+
+[node name="play" type="Button" parent="."]
+offset_left = 471.0
+offset_top = 292.0
+offset_right = 704.0
+offset_bottom = 365.0
+text = "Play
+"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]

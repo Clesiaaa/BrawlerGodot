@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy6cfqsqmf7gm"]
+
+[ext_resource type="Texture2D" uid="uid://cbdkibfmd2ixt" path="res://assets/backgrounds/bg2.png" id="1_xr073"]
+[ext_resource type="Texture2D" uid="uid://bsh2du6o6ss7j" path="res://assets/visuals/title.png" id="2_sea8l"]
+[ext_resource type="AudioStream" uid="uid://f3fqyf3gq6yj" path="res://assets/audio/fight.mp3" id="3_oucyw"]
+[ext_resource type="PackedScene" uid="uid://cs6cl5wk120wy" path="res://Player/Player.tscn" id="4_iexwm"]
+[ext_resource type="PackedScene" uid="uid://b8gw88c5knc0f" path="res://Player/player_2.tscn" id="5_xmk6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tveta"]
+size = Vector2(1201, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y44ul"]
+size = Vector2(31, 692)
+
+[node name="multi_map2" type="Node2D"]
+
+[node name="Bg2" type="Sprite2D" parent="."]
+position = Vector2(576.75, 324.25)
+scale = Vector2(0.644252, 0.632324)
+texture = ExtResource("1_xr073")
+
+[node name="box" type="StaticBody2D" parent="."]
+position = Vector2(499, 374)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box"]
+position = Vector2(73, 286)
+shape = SubResource("RectangleShape2D_tveta")
+debug_color = Color(0.94902, 0, 0.568627, 0.419608)
+
+[node name="WALL_R" type="CollisionShape2D" parent="box"]
+position = Vector2(-516, -82)
+shape = SubResource("RectangleShape2D_y44ul")
+
+[node name="WALL_L" type="CollisionShape2D" parent="box"]
+position = Vector2(664, -76)
+shape = SubResource("RectangleShape2D_y44ul")
+
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(578, 64)
+rotation = -0.000304453
+scale = Vector2(8.44736, 10.875)
+texture = ExtResource("2_sea8l")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+rotation = -0.00715651
+stream = ExtResource("3_oucyw")
+volume_db = -1.255
+autoplay = true
+
+[node name="Player" parent="." instance=ExtResource("4_iexwm")]
+position = Vector2(197, 607)
+
+[node name="Player_2" parent="." instance=ExtResource("5_xmk6y")]
+position = Vector2(925, 611)

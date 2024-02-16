@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://bau5pu526r202"]
+
+[ext_resource type="PackedScene" uid="uid://cs6cl5wk120wy" path="res://Player/Player.tscn" id="1_7m1cp"]
+[ext_resource type="Texture2D" uid="uid://b746x2ljbvgxh" path="res://assets/backgrounds/bg0.png" id="2_vx6ao"]
+[ext_resource type="AudioStream" uid="uid://f3fqyf3gq6yj" path="res://assets/audio/fight.mp3" id="3_itps0"]
+[ext_resource type="Texture2D" uid="uid://bsh2du6o6ss7j" path="res://assets/visuals/title.png" id="4_rh2tv"]
+[ext_resource type="PackedScene" uid="uid://b8gw88c5knc0f" path="res://Player/player_2.tscn" id="5_f2x7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvsi6"]
+size = Vector2(1201, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x32w"]
+size = Vector2(31, 692)
+
+[node name="multiplayer_world" type="Node2D"]
+
+[node name="Bg0" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(578.5, 298.5)
+scale = Vector2(0.675781, 0.68457)
+texture = ExtResource("2_vx6ao")
+
+[node name="Player" parent="." instance=ExtResource("1_7m1cp")]
+position = Vector2(240, 558)
+scale = Vector2(0.893989, 1.00477)
+
+[node name="box" type="StaticBody2D" parent="."]
+position = Vector2(499, 374)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box"]
+position = Vector2(78.5, 248)
+shape = SubResource("RectangleShape2D_bvsi6")
+debug_color = Color(0.94902, 0, 0.568627, 0.419608)
+
+[node name="WALL_R" type="CollisionShape2D" parent="box"]
+position = Vector2(-516, -82)
+shape = SubResource("RectangleShape2D_0x32w")
+
+[node name="WALL_L" type="CollisionShape2D" parent="box"]
+position = Vector2(669, -80)
+shape = SubResource("RectangleShape2D_0x32w")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+rotation = -0.00715651
+stream = ExtResource("3_itps0")
+autoplay = true
+
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(575, 56)
+scale = Vector2(8.44736, 10.875)
+texture = ExtResource("4_rh2tv")
+
+[node name="Player_2" parent="." instance=ExtResource("5_f2x7c")]
+position = Vector2(869, 570)
+scale = Vector2(0.960002, 0.989377)
+speed = 600
+gravity = 30
+jump_force = 500
+maxhealth = 100
+hurt = false
