@@ -4,7 +4,7 @@ MOVEMENTS :
 A E, arrow_left arrow_right
 
 JUMP :
-space_bar, arrow_left
+space_bar, arrow_up
 
 ATTACK : 
 K,L, RIGHT_CLICK, LEFT_CLICK
